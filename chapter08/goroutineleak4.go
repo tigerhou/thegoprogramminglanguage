@@ -4,16 +4,15 @@ import (
 	"fmt"
 	"math/rand"
 	"runtime"
-	"time"
 )
 
 func query() int {
 	n := rand.Intn(100)
-	time.Sleep(time.Duration(n) * time.Millisecond)
+	//time.Sleep(time.Duration(n) * time.Millisecond)
 	return n
 }
 func queryAll() int {
-	ch := make(chan int, 3)
+	ch := make(chan int)
 	go func() { ch <- query() }()
 	go func() { ch <- query() }()
 	go func() { ch <- query() }()
